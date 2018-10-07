@@ -28,3 +28,29 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 
 
 
+### 从github上克隆
+
+ git clone https://github.com/rqb/javadoc
+
+
+
+### Git常用命令
+
+> - Workspace：工作区
+> - Index / Stage：暂存区
+> - Repository：仓库区（或本地仓库）
+> - Remote：远程仓库
+
+```sequence
+Remote->Repository:fetch/clone
+Repository->Remote:push
+Index->Repository:commit
+Repository->WorkSpace:checkout
+WorkSpace->Index:add
+Remote->WorkSpace:pull
+```
+
+
+
+
+

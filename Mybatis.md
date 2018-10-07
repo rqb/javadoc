@@ -44,5 +44,43 @@ Generator生成代码
 
 
 
+## Mybatis中Mapper内置方法细解
 
+selectByExample===>根据条件查询数据
+
+```java
+//下面是一个完整的案例
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo("joe");
+criteria.andUsernameIsNull();
+example.setOrderByClause("username asc,email desc");
+List<?>list = userDAO.selectByExample(example);
+相当于：select * from user where username = 'joe' and username is null order by username asc,email desc
+ 
+//注：在iBator 生成的文件UserExample.java中包含一个static 的内部类 Criteria ，在Criteria中有很多方法，主要是定义SQL 语句where后的查询条件。
+```
+
+**insert===>插入数据** 
+
+```java
+int insert(Account record);
+ 
+//下面是完整的案例
+User user = new User();
+ //user.setId(101);
+ user.setUsername("test");
+ user.setPassword("123456")
+ user.setEmail("674531003@qq.com");
+ userDAO.insert(user);
+ //相当于：insert into user(ID,username,password,email)values(101,'test','123456','674531003@qq.com');
+```
+
+
+
+**insertSelective===>插入数据** 
+
+```java
+
+```
 
