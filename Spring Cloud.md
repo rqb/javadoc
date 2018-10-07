@@ -6,6 +6,10 @@
 
 
 
+![](D:\技术文档\面试资料整理\git\文章\gif\20180131204721514.png)
+
+
+
 
 
 ### 事件/监听模式
@@ -13,8 +17,6 @@
 java.util.EventObject
 
 java.util.EventListener
-
-
 
 
 
@@ -275,15 +277,54 @@ Java System#getenv 实现(环境变量）： 名称"systemEnvironment"，对应�
 16. [`@PropertySource`](https://docs.spring.io/spring/docs/5.0.4.RELEASE/javadoc-api/org/springframework/context/annotation/PropertySource.html) annotations on your `@Configuration` classes.
 17. Default properties (specified by setting `SpringApplication.setDefaultProperties`).
 
-# 微服务容错处理
+#  服务注册与发现
 
-## 容错手段 
+## Eureka
+
+
+
+自我保护模式： 默认配置下，如果Eureka Server每分钟收到心跳续约的数量低于一个阈值（instance的数量(60/每个instance的心跳间隔秒数)自我保护系数），并且持续15分钟，就会触发自我保护。在自我保护模式中，Eureka Server会保护服务注册表中的信息，不再注销任何服务实例。当它收到的心跳数重新恢复到阈值以上时，该Eureka Server节点就会自动退出自我保护模式。它的设计理念就是宁可保留错误的服务注册信息，也不盲目注销任何可能健康的服务实例。该模式可以通过eureka.server.enable-self-preservation = false来禁用，同时eureka.instance.lease-renewal-interval-in-seconds可以用来更改心跳间隔，eureka.server.renewal-percent-threshold可以用来修改自我保护系数（**默认0.85**）。 
+
+
+
+## Zookeeper
+
+
+
+# 客户端负载均衡
+
+
+
+## 16.1 How to Include Ribbon
+
+To include Ribbon in your project, use the starter with a group ID of `org.springframework.cloud` and an artifact ID of `spring-cloud-starter-netflix-ribbon`. See the [Spring Cloud Project page](https://projects.spring.io/spring-cloud/) for details on setting up your build system with the current Spring Cloud Release Train.
+
+```xml
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+```
+
+
+
+
+
+# Spring Cloud 服务熔断
+
+## 微服务容错手段
 
 为网络请求设置超时
 
 
 
 使用断路器模式
+
+
+
+## 使用Hystrix实现容错
+
+
 
 
 
