@@ -38,11 +38,11 @@ Docker是PasS提供商DoctCloud开源的一个基于LXC的高级容器引擎，�
 
 传统的虚拟化技术、比如Vmware、KVM、Xen，目标是创建完整的虚拟机，为了运行应用，除了部署应用本身及其依赖（几十MB）还有安装整个操作系统（几十GB）
 
-- [ ] [![img](https://docs.docker.com/images/Container%402x.png)]()
+[![img](https://docs.docker.com/images/Container%402x.png)]()
 
 
 
-- [ ] ![img](https://docs.docker.com/images/VM%402x.png)
+![img](https://docs.docker.com/images/VM%402x.png)
 
 
 
@@ -161,9 +161,9 @@ Docker容器
 
 ## docker image
 
-docker image -a
+docker image ls -a
 
-docker image -q
+docker image ls -q
 
 ## docker search
 
@@ -173,7 +173,7 @@ docker search -s 30 tomcat
 
 ## docker pull
 
-
+docker pull mysql
 
 ## docker rmi 
 
@@ -187,7 +187,7 @@ docker run -d  后台方式运行
 
 ## docker ps
 
-
+docker ps 
 
 ## docker exec
 
